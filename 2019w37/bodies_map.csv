@@ -1,0 +1,26 @@
+body_part,body,x_coord,y_coord
+head,M,113,46
+back,F,292,142
+neck | collarbone,M,114,79
+ankle,F,362,443
+knee,F,340,367
+shoulder,M,166,110
+arm,F,344,193
+leg,M,90,356
+foot,F,381,478
+wrist,M,18,88
+chest,M,114,131
+finger,M,22,26
+elbow,M,17,156
+nose,F,290,70
+forehead,M,111,18
+chin | cheek | face,F,294,100
+eye | eyebrow,F,275,53
+hand,M,18,60
+mouth | tooth,M,291,86
+toe,M,258,486
+hip,F,246,250
+stomach,M,112,214
+ear,F,320,74
+abdomen,F,298,205
+groin | butt,M,110,270
