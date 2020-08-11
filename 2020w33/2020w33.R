@@ -248,7 +248,9 @@ avatar_dg %>%
   theme_avatar(title.font = "Slayer",
                text.font = "Slayer",
                title.size = 14) +
-  theme(legend.position = "none") -> p_cum
+  theme(legend.position = "none",
+        panel.grid = element_line(color = "#ece5d3"),
+        plot.caption = element_text(color = "#999999")) -> p_cum
 
 avatar_dg %>%
   count(book_name, element, wt=drinks, name = "drinks_total") %>%
@@ -267,15 +269,16 @@ avatar_dg %>%
   theme_avatar(title.font = "Slayer",
                text.font = "Slayer",
                title.size = 14) +
-  theme(legend.position = "none") -> p_total
+  theme(legend.position = "none",
+        panel.grid = element_line(color = "#ece5d3"),
+        plot.caption = element_text(color = "#999999")) -> p_total
 
 #Create rules
 library(grid)
 grobTree( rectGrob(gp=gpar(fill="#ece5d3", col = NA)),
-          grid::textGrob("Rules:
-Choose an element. Drink (1) sip each time someone bends using that element.
-Bonus rules:",
-                         just = "left", x = 0.01, y = 0.05, vjust = 0,
+          grid::textGrob("Game Rules: Choose an element. Drink (1) sip each time a character bends using that element.
+Each element has bonus rules & drink amounts:",
+                         just = "left", x = 0.01, y = 0.1, vjust = 0,
                          gp = grid::gpar(fontfamily = "Slayer", fontsize = 9))) -> p_detail
 
 grobTree( rectGrob(gp=gpar(fill="#ece5d3", col = col_water[2])),
@@ -338,8 +341,10 @@ layout <- "AAAB
 
 p_cum + p_total + p_detail +
   p_d_water + p_d_earth + p_d_fire + p_d_air +
-  plot_layout(design=layout) #+
-  #' plot_annotation(caption = "#TidyTuesday | 2020 Week 33
-  #'                 @ Ryan Timpe .com")
+  plot_layout(design=layout) +
+  plot_annotation(caption = "TidyTuesday |2020W33
+                  @ Ryan Timpe .com") &
+    theme(plot.background = element_rect(fill = "#ece5d3"),
+          text = element_text(family = "Slayer", size = 8))
 
 ggsave("2020w33/LastAirbenderDrinkingGame.png", width = 12, height =7)
